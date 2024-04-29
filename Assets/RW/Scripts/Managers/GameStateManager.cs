@@ -12,7 +12,8 @@ public class GameStateManager : MonoBehaviour
     [HideInInspector]
     public int sheepSaved = 0; // 2
 
-    public int sheepDropped = 0; // 3
+    [HideInInspector]
+    public float sheepDropped = 0; // 3
 
     public int sheepDroppedBeforeGameOver; // 4
     public SheepSpawner sheepSpawner; // 5
@@ -50,7 +51,7 @@ public class GameStateManager : MonoBehaviour
 
     public void DroppedSheep()
     {
-        sheepDropped++; // 1
+        sheepDropped += 0.5f; // 1
         UIManager.Instance.UpdateSheepDropped();
 
 
