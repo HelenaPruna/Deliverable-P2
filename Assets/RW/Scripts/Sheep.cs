@@ -15,11 +15,6 @@ public class Sheep : MonoBehaviour
 
     private SheepSpawner sheepSpawner;
 
-    public void SetSpawner(SheepSpawner spawner)
-    {
-        sheepSpawner = spawner;
-    }
-
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +38,12 @@ public class Sheep : MonoBehaviour
         sheepSpawner.RemoveSheepFromList(gameObject);
 
     }
+
+    public void SetSpawner(SheepSpawner spawner)
+    {
+        sheepSpawner = spawner;
+    }
+
 
     private void OnTriggerEnter(Collider other) // 1
     {
