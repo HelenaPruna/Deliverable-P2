@@ -20,10 +20,13 @@ public class SheepSpawner : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
+   private IEnumerator SpawnRoutine() // 1
     {
-        
+        while (canSpawn) // 2
+        {
+            SpawnSheep(); // 3
+            yield return new WaitForSeconds(timeBetweenSpawns); // 4
+        }
     }
 
     private void SpawnSheep()
@@ -34,15 +37,6 @@ public class SheepSpawner : MonoBehaviour
         sheep.GetComponent<Sheep>().SetSpawner(this); // 4
     }
 
-
-    private IEnumerator SpawnRoutine() // 1
-    {
-        while (canSpawn) // 2
-        {
-            SpawnSheep(); // 3
-            yield return new WaitForSeconds(timeBetweenSpawns); // 4
-        }
-    }
 
     public void RemoveSheepFromList(GameObject sheep)
     {
